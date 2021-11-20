@@ -6,6 +6,15 @@ from os import getcwd, path, environ
 def cli():
 
     @command
+    def install():
+        r(['poetry', 'install'], check=True)
+
+    @command
+    def setup():
+        install()
+        r(['poetry', 'shell'], check=True)
+
+    @command
     def run(*args):
         r(['python3', '-m', 'pm', *args], env=dict(
             environ,

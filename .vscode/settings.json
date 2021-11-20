@@ -1,5 +1,9 @@
 {
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.ignorePatterns": ["task"],
     "files.exclude": {
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        ".mypy_cache": true
     }
 }

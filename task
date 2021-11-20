@@ -10,11 +10,22 @@ def cli():
         r(['python3', '-m', 'pm', *args], env=dict(
             environ,
             PYTHONPATH=path.join(getcwd(), 'src')
-        ))
+        ), check=True)
 
     @command
     def typecheck():
-        r(['mypy', 'src'])
+        r(['mypy', 'src'], check=True)
+
+    @command
+    def build():
+        r(['rm', '-rf', 'dist'], check=True)
+        r([
+            'pyinstaller',
+            '--workpath', './pyinstaller/build',
+            '--specpath', './pyinstaller',
+            '--name', 'pm',
+            'src/pm/__main__.py'
+        ], check=True)
 
 
 # fmt: off

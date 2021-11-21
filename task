@@ -22,6 +22,11 @@ def cli():
         ), check=True)
 
     @command
+    def format():
+        r(['autopep8', '--in-place', '--recursive', 'src'], check=True)
+        r(['autopep8', '--in-place', 'task'], check=True)
+
+    @command
     def typecheck():
         r(['mypy', 'src'], check=True)
 

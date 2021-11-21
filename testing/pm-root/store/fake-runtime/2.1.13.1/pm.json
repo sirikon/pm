@@ -1,0 +1,9 @@
+{
+    "name": "fake-runtime",
+    "version": "2.1.13.1",
+    "features": {
+        "shell.presence": [{
+            "addToPath": ["${package_path}/bin"]
+        }]
+    }
+}

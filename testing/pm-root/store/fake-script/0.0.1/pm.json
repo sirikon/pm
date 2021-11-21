@@ -1,0 +1,9 @@
+{
+    "name": "fake-script",
+    "version": "0.0.1",
+    "features": {
+        "shell.presence": [{
+            "addToPath": ["${package_path}/src/bin"]
+        }]
+    }
+}

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 from subprocess import run as r
-from os import getcwd, path, environ
+from os import getcwd, path, environ, makedirs
 
+TESTING_FOLDER = path.join(getcwd(), 'testing-folder')
 
 def cli():
 
@@ -16,9 +17,11 @@ def cli():
 
     @command
     def run(*args):
+        makedirs(TESTING_FOLDER, exist_ok=True)
         r(['python3', '-m', 'pm', *args], env=dict(
             environ,
-            PYTHONPATH=path.join(getcwd(), 'src')
+            PYTHONPATH=path.join(getcwd(), 'src'),
+            PM_ROOT=TESTING_FOLDER
         ), check=True)
 
     @command

@@ -1,4 +1,5 @@
 import click
+from pm import paths
 
 VERSION = '0.1.0'
 
@@ -10,7 +11,7 @@ def cli() -> None: pass
 @cli.command()
 def reindex() -> None:
     """Recalculate the package index based on the store's contents"""
-    print("reindexin'")
+    print(paths.get_root())
 
 
 @cli.command()

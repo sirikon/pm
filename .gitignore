@@ -3,3 +3,4 @@
 /dist
 /pyinstaller
 /.venv
+/testing-directory

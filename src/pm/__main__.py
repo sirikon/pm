@@ -1,6 +1,6 @@
 import click
-import pkg_resources
 
+VERSION='0.1.0'
 
 @click.group()
 def cli() -> None: pass
@@ -9,7 +9,7 @@ def cli() -> None: pass
 @cli.command()
 def version() -> None:
     """Displays pm's version"""
-    print(pkg_resources.get_distribution('pm').version)
+    print(VERSION)
 
 
 cli()

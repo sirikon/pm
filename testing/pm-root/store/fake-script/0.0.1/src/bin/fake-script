@@ -1,3 +1,2 @@
 #!/usr/bin/env fake-runtime
 echo "Fake script running!"
-echo "$0"

@@ -1,2 +1,2 @@
 # `pm`
-**p**ackage **m**anager
+**P**ackage **M**anager

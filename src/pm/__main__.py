@@ -1,5 +1,15 @@
-def main(msg: str) -> None:
-    print(msg)
+import click
+import pkg_resources
 
 
-main("Henlo")
+@click.group()
+def cli() -> None: pass
+
+
+@cli.command()
+def version() -> None:
+    """Displays pm's version"""
+    print(pkg_resources.get_distribution('pm').version)
+
+
+cli()

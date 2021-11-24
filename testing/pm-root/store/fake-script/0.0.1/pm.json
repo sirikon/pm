@@ -3,7 +3,11 @@
     "version": "0.0.1",
     "features": {
         "shell.presence": [{
-            "addToPath": ["${package_path}/src/bin"]
+            "addToPath": ["${package}/src/bin"],
+            "environmentVariables": {
+                "FAKE_SCRIPT_HOME": "${package}",
+                "FAKE_SCRIPT_VERSION": "0.0.1"
+            }
         }]
     }
 }

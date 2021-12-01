@@ -1,6 +1,9 @@
 {
     "name": "fake-script",
     "version": "0.0.1",
+    "dependencies": [
+        { "name": "fake-runtime", "version": "2.2" }
+    ],
     "features": {
         "shell.presence": [{
             "addToPath": ["${package}/src/bin"],

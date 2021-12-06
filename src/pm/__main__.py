@@ -1,5 +1,6 @@
 import click
-from pm import paths
+from pm.core.paths import get_root_path
+from pm.services import user_deps
 
 VERSION = '0.1.0'
 
@@ -9,9 +10,10 @@ def cli() -> None: pass
 
 
 @cli.command()
-def reindex() -> None:
+def foo() -> None:
     """Recalculate the package index based on the store's contents"""
-    print(paths.get_root())
+    print(user_deps.get_user_deps())
+
 
 
 @cli.command()

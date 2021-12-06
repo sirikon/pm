@@ -24,6 +24,10 @@ def cli():
             PYTHONPATH=path.join(getcwd(), 'src'),
             PM_ROOT=TESTING_PM_ROOT
         ), check=True)
+    
+    @command
+    def test(*args):
+        r(['pytest', '--no-header', '-s', '-vv', '--show-capture=all', 'src'], check=True)
 
     @command
     def format():

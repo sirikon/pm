@@ -1,5 +1,5 @@
 {
     "dependencies": {
-        "fake-script": "0.0.1"
+        "fake-script": "~0.0.1"
     }
 }

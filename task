@@ -12,8 +12,16 @@ def cli():
         r(['poetry', 'install'], check=True)
 
     @command
+    def gen_version_file():
+        with open('src/pm/version.py', 'w') as f:
+            version = r(['poetry', 'version', '-s'], capture_output=True,
+                        text=True, check=True).stdout.replace('\n', '')
+            f.write(f'VERSION = "{version}"\n')
+
+    @command
     def setup():
         install()
+        gen_version_file()
         r(['poetry', 'shell'], check=True)
 
     @command
@@ -24,10 +32,11 @@ def cli():
             PYTHONPATH=path.join(getcwd(), 'src'),
             PM_ROOT=TESTING_PM_ROOT
         ), check=True)
-    
+
     @command
-    def test(*args):
-        r(['pytest', '--no-header', '-s', '-vv', '--show-capture=all', 'src'], check=True)
+    def test():
+        r(['pytest', '--no-header', '-s', '-vv',
+          '--show-capture=all', 'src'], check=True)
 
     @command
     def format():
@@ -40,6 +49,7 @@ def cli():
 
     @command
     def build():
+        gen_version_file()
         r(['rm', '-rf', 'dist'], check=True)
         r([
             'pyinstaller',
@@ -48,7 +58,6 @@ def cli():
             '--name', 'pm',
             'src/pm/__main__.py'
         ], check=True)
-
 
 # fmt: off
 # https://gist.github.com/sirikon/d4327b6cc3de5cc244dbe5529d8f53ae

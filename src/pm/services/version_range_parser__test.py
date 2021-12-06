@@ -11,6 +11,8 @@ def test() -> None:
     verify('3.', None)
     verify('...', None)
     verify('3.-14.1', None)
+    verify('3.3.14.1', None)
+    verify('^3.14.1$', None)
 
     verify('3.14.1', VersionRange(Version(3, 14, 1), True, Version(3, 14, 1), True))
     verify('3.15.20', VersionRange(Version(3, 15, 20), True, Version(3, 15, 20), True))

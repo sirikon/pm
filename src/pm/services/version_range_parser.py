@@ -3,14 +3,14 @@ import re
 from typing import Optional
 from pm.core.models import VersionRange, Version
 
+NUMBER_RE = '([0-9]+)'
+VERSION_RE = f'{NUMBER_RE}\\.{NUMBER_RE}\\.{NUMBER_RE}'
+
 
 def parse_version_range(data: str) -> Optional[VersionRange]:
-    simple_version = re.search(
-        '^([0-9]+)\\.([0-9]+)\\.([0-9]+)$', data)
-    variable_patch_version = re.search(
-        '^~([0-9]+)\\.([0-9]+)\\.([0-9]+)$', data)
-    variable_minor_version = re.search(
-        '^\\^([0-9]+)\\.([0-9]+)\\.([0-9]+)$', data)
+    simple_version = re.search(f'^{VERSION_RE}$', data)
+    variable_patch_version = re.search(f'^~{VERSION_RE}$', data)
+    variable_minor_version = re.search(f'^\\^{VERSION_RE}$', data)
 
     if simple_version is not None:
         version = Version(
@@ -29,7 +29,7 @@ def parse_version_range(data: str) -> Optional[VersionRange]:
             int(variable_patch_version.group(2)) + 1,
             0)
         return VersionRange(start_version, True, end_version, False)
-    
+
     if variable_minor_version is not None:
         start_version = Version(
             int(variable_minor_version.group(1)),

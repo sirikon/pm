@@ -7,6 +7,15 @@ NUMBER_RE = '([0-9]+)'
 VERSION_RE = f'{NUMBER_RE}\\.{NUMBER_RE}\\.{NUMBER_RE}'
 
 
+def parse_version(data: str) -> Optional[Version]:
+    m = re.search(f'^{VERSION_RE}$', data)
+    return Version(
+        int(m.group(1)),
+        int(m.group(2)),
+        int(m.group(3))
+    ) if m is not None else None
+
+
 def parse_version_range(data: str) -> Optional[VersionRange]:
     simple_version = re.search(f'^{VERSION_RE}$', data)
     variable_patch_version = re.search(f'^~{VERSION_RE}$', data)

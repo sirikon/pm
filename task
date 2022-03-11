@@ -23,7 +23,8 @@ def cli():
     @command
     def run():
         cmd('deno', 'run',
-            *DENO_EXEC_FLAGS, *DENO_COMP_FLAGS,
+            *DENO_COMP_FLAGS,
+            *DENO_EXEC_FLAGS,
             *DENO_CONF_FLAGS,
             './src/main.ts')
 
@@ -31,7 +32,8 @@ def cli():
     def build():
         os.makedirs('dist', exist_ok=True)
         cmd('deno', 'compile',
-            *DENO_EXEC_FLAGS, *DENO_COMP_FLAGS,
+            *DENO_COMP_FLAGS,
+            *DENO_EXEC_FLAGS,
             *DENO_CONF_FLAGS,
             '--output', 'dist/pm',
             './src/main.ts')

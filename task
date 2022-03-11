@@ -34,7 +34,7 @@ def cli():
             *DENO_EXEC_FLAGS, *DENO_COMP_FLAGS,
             *DENO_CONF_FLAGS,
             '--output', 'dist/pm',
-            './src/main.ts', '')
+            './src/main.ts')
 
 
 

@@ -1,1 +1,3 @@
-console.log("Henlo")
+import {} from "superstruct";
+
+console.log("Henlo");

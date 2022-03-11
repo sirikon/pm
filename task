@@ -1,12 +1,28 @@
 #!/usr/bin/env python3
 
+DENO_FLAGS = [
+    '--import-map', './src/import_map.json',
+    '--lock', './src/lock.json'
+]
+
+
 def cli():
+
+    @command
+    def install():
+        cmd('deno', 'cache',
+            *DENO_FLAGS, '--reload', './src/main.ts')
+
+    @command
+    def lock():
+        cmd('deno', 'cache',
+            *DENO_FLAGS, '--lock-write', './src/main.ts')
 
     @command
     def run():
         cmd('deno', 'run',
             '-A', '--unstable',
-            '--config', './src/deno.json',
+            *DENO_FLAGS, '--cached-only',
             './src/main.ts')
 
     @command
@@ -14,7 +30,7 @@ def cli():
         os.makedirs('dist', exist_ok=True)
         cmd('deno', 'compile',
             '-A', '--unstable',
-            '--config', './src/deno.json',
+            *DENO_FLAGS, '--cached-only',
             '--output', 'dist/pm',
             './src/main.ts', '')
 

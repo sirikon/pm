@@ -6,14 +6,12 @@
   "deno.lint": true,
   "deno.config": "./src/deno.json",
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
-    "files.insertFinalNewline": true
+    "editor.defaultFormatter": "denoland.vscode-deno"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
-    "files.insertFinalNewline": true
+    "editor.defaultFormatter": "denoland.vscode-deno"
   },
   "[python]": {
     "editor.tabSize": 4
-  },
+  }
 }

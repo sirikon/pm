@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-echo "Fake runtime running!"
-echo "$0"

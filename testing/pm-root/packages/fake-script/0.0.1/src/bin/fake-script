@@ -1,4 +1,0 @@
-#!/usr/bin/env fake-runtime
-# pm-shebang-interpreter: ${dependencies}/fake-runtime/bin/fake-runtime
-set -euo pipefail
-echo "Fake script running!"

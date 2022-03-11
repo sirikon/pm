@@ -30,7 +30,8 @@ def cli():
 
     @command
     def build():
-        os.makedirs('dist', exist_ok=True)
+        cmd('rm', '-rf', 'dist')
+        cmd('mkdir', '-p', 'dist')
         cmd('deno', 'compile',
             *DENO_COMP_FLAGS,
             *DENO_EXEC_FLAGS,

@@ -6,8 +6,7 @@ DENO_CONF_FLAGS = [
     '--import-map', './src/import_map.json',
     '--lock', './src/lock.json',
 ]
-DENO_EXEC_FLAGS = ['-A']
-DENO_COMP_FLAGS = ['--unstable', '--cached-only']
+DENO_EXEC_FLAGS = ['-A', '--unstable', '--cached-only']
 
 ENTRY_FILE = os.path.join(os.getcwd(), 'src/main.ts')
 TEST_FILES = glob.glob(os.path.join(
@@ -32,7 +31,6 @@ def cli():
     def run():
         cmd('deno', 'run',
             *DENO_CONF_FLAGS,
-            *DENO_COMP_FLAGS,
             *DENO_EXEC_FLAGS,
             ENTRY_FILE)
 
@@ -48,7 +46,6 @@ def cli():
         cmd('mkdir', '-p', 'dist')
         cmd('deno', 'compile',
             *DENO_CONF_FLAGS,
-            *DENO_COMP_FLAGS,
             *DENO_EXEC_FLAGS,
             '--output', 'dist/pm',
             ENTRY_FILE)

@@ -1,15 +1,14 @@
-# `pm`
-**P**ackage **M**anager
+# `pm` **P**ackage **M**anager
 
 ## Discovery and cleanup
 
 We'll traverse all subdirectories, starting in the current one, looking for
-`pm.deps.json` files.
+`pm.json` files.
 
-Every found file will be verified for syntax correctness and added to the deps
-file pool.
+Every found file will be verified for syntax correctness and added to the
+pmfile pool.
 
-After that, every existing file in the deps file pool will be checked to see if
+After that, every existing file in the pmfile pool will be checked to see if
 it still exists, removing any non-existing files from the pool.
 
 ## Glosary
@@ -20,7 +19,7 @@ it still exists, removing any non-existing files from the pool.
   - **version number**: Always 4 alphanumeric numbers separated by dots.
   - **variant**: Fallbacks to `default`, same character limitations as of package names.
 - **explicit packages**: Every explicitly defined package in any of the files
-from deps file pool.
+from pmfile pool.
 - **implicit packages**: Packages that need to be installed but are not defined
 explicitly. For example: dependencies for other explicit packages.
 - **desired packages**: A combination of all the explicit and implicit packages.

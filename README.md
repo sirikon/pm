@@ -18,10 +18,13 @@ it still exists, removing any non-existing files from the pool.
   - **name**: Only lowercase, numbers and hyphens allowed as characters package names.
   - **version number**: Always 4 alphanumeric numbers separated by dots.
   - **variant**: Fallbacks to `default`, same character limitations as of package names.
-- **explicit packages**: Every explicitly defined package in any of the files
+- **package range**: Same as a package, but instead of a version, it has a range of versions.
+  - **version range**: From version (inclusive or exclusive), to version (inclusive or exclusive).
+- **explicit package ranges**: Every explicitly defined package range in any of the files
 from pmfile pool.
+- **explicit packages**: Packages obtained from deciding a version of explicit package ranges.
 - **implicit packages**: Packages that need to be installed but are not defined
-explicitly. For example: dependencies for other explicit packages.
+explicitly. For example: dependencies for explicit package ranges.
 - **desired packages**: A combination of all the explicit and implicit packages.
 - **installed packages**: All packages installed on the system.
 - **undesired packages**: Any installed package that is not on the desired packages list.

@@ -2,18 +2,19 @@
 import glob
 import os
 
-DENO_CONF_FLAGS = [
-    '--import-map', './src/import_map.json',
-    '--lock', './src/lock.json',
-]
-DENO_EXEC_FLAGS = ['-A', '--unstable', '--cached-only']
-
-ENTRY_FILE = os.path.join(os.getcwd(), 'src/main.ts')
-TEST_FILES = glob.glob(os.path.join(
-    os.getcwd(), 'src/**/*.test.ts'), recursive=True)
-
 
 def cli():
+    def abs(p): return os.path.join(os.getcwd(), p)
+    DENO_CONF_FLAGS = [
+        '--import-map', abs('src/import_map.json'),
+        '--lock', abs('src/lock.json'),
+    ]
+    DENO_PERM_FLAGS = ['-A']
+    DENO_EXEC_FLAGS = ['--unstable', '--cached-only']
+
+    ENTRY_FILE = abs('src/main.ts')
+    TEST_FILES = glob.glob(os.path.join(
+        os.getcwd(), 'src/**/*.test.ts'), recursive=True)
 
     @command
     def install():
@@ -28,16 +29,18 @@ def cli():
             ENTRY_FILE, *TEST_FILES)
 
     @command
-    def run():
+    def run(workdir='.', *args):
         cmd('deno', 'run',
             *DENO_CONF_FLAGS,
+            *DENO_PERM_FLAGS,
             *DENO_EXEC_FLAGS,
-            ENTRY_FILE)
+            ENTRY_FILE, cwd=workdir)
 
     @command
     def test():
         cmd('deno', 'test',
             *DENO_CONF_FLAGS,
+            *DENO_EXEC_FLAGS,
             *TEST_FILES)
 
     @command
@@ -46,6 +49,7 @@ def cli():
         cmd('mkdir', '-p', 'dist')
         cmd('deno', 'compile',
             *DENO_CONF_FLAGS,
+            *DENO_PERM_FLAGS,
             *DENO_EXEC_FLAGS,
             '--output', 'dist/pm',
             ENTRY_FILE)

@@ -2,10 +2,6 @@ import { dirname, join } from "std/path/mod.ts";
 import { PmFile, PmFileModel } from "./models.ts";
 import { assert } from "superstruct";
 
-// export async function getExplicitPackages() {
-//   const pmFiles = await getPmFiles();
-// }
-
 export async function getPmFiles() {
   const pmFileLookups = getPmFileLookups(Deno.cwd());
 

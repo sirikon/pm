@@ -1,6 +1,6 @@
 import { PackageVersion, PackageVersionRange } from "../core/models.ts";
 
-const VERSION_REGEX = /^(?:[0-9]+\.?)+(?<!\.)$/;
+export const VERSION_REGEX = /^(?:[0-9]+\.?)+(?<!\.)$/;
 
 export function parseVersionRange(data: string): PackageVersionRange | null {
   if (data === "") return { from: null, to: null };

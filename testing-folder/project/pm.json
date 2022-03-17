@@ -1,1 +1,5 @@
-{}
+{
+  "dependencies": [
+    ["peter", "2"]
+  ]
+}

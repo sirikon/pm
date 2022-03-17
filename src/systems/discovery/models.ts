@@ -1,6 +1,17 @@
-import { Infer, optional, record, string, type } from "superstruct";
+import {
+  array,
+  Infer,
+  optional,
+  pattern,
+  string,
+  tuple,
+  type,
+} from "superstruct";
+import { VERSION_REGEX } from "./versionParsing.ts";
 
 export const PmFileModel = type({
-  dependencies: optional(record(string(), string())),
+  dependencies: optional(
+    array(tuple([string(), pattern(string(), VERSION_REGEX)])),
+  ),
 });
 export type PmFile = Infer<typeof PmFileModel>;

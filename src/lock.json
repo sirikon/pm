@@ -1,12 +1,12 @@
 {
-  "https://cdn.esm.sh/v68/superstruct@0.15.4/deno/superstruct.js": "d4e91cd9dee071e89fc720ab8e190ffcf9aa33ea04a5222f8ea6546f7127af7b",
-  "https://cdn.esm.sh/v68/superstruct@0.15.4/lib/error.d.ts": "9ea3514a9c2abd95830c8086e8e900d2d89cc6e3b6571fd657191a324bbcdfdb",
-  "https://cdn.esm.sh/v68/superstruct@0.15.4/lib/index.d.ts": "5b6dea08f74f4c0d29fb405ae1488a35f42aa3f3d9b6fcb13b60daa5ac243daa",
-  "https://cdn.esm.sh/v68/superstruct@0.15.4/lib/struct.d.ts": "626566e7d35920d117ec28efd29aa29add264a476211a51f64ccdf3f7c3322fa",
-  "https://cdn.esm.sh/v68/superstruct@0.15.4/lib/structs/coercions.d.ts": "f0a5197bd601b4237a4ff5f6328afdba52f7472ec371ef630d0e5e4070ad643d",
-  "https://cdn.esm.sh/v68/superstruct@0.15.4/lib/structs/refinements.d.ts": "c44fdad039a1675562f670010a31e27cd34671fe44889aefb65212c8a5246203",
-  "https://cdn.esm.sh/v68/superstruct@0.15.4/lib/structs/types.d.ts": "fcf964bc83e890d2f20eacc67cc0af0d009a541bed43ecfbbc107a38316c5d8c",
-  "https://cdn.esm.sh/v68/superstruct@0.15.4/lib/structs/utilities.d.ts": "48dc1a1a921596e71006bbdb28d738c9bb79fd2c4e0d4f8ebf2b40e967d43a2c",
-  "https://cdn.esm.sh/v68/superstruct@0.15.4/lib/utils.d.ts": "fe163b022b3a62d40303ae8b28ca1436e998468b7e5c820102931f7842654616",
-  "https://esm.sh/superstruct@0.15.4": "c8db2c5ccfda8ee5fb8d325439ef8db07bc3247c69c6537d6ba5149b6f4329fa"
+  "https://cdn.esm.sh/v69/superstruct@0.15.4/deno/superstruct.js": "d4e91cd9dee071e89fc720ab8e190ffcf9aa33ea04a5222f8ea6546f7127af7b",
+  "https://cdn.esm.sh/v69/superstruct@0.15.4/lib/error.d.ts": "9ea3514a9c2abd95830c8086e8e900d2d89cc6e3b6571fd657191a324bbcdfdb",
+  "https://cdn.esm.sh/v69/superstruct@0.15.4/lib/index.d.ts": "5b6dea08f74f4c0d29fb405ae1488a35f42aa3f3d9b6fcb13b60daa5ac243daa",
+  "https://cdn.esm.sh/v69/superstruct@0.15.4/lib/struct.d.ts": "626566e7d35920d117ec28efd29aa29add264a476211a51f64ccdf3f7c3322fa",
+  "https://cdn.esm.sh/v69/superstruct@0.15.4/lib/structs/coercions.d.ts": "f0a5197bd601b4237a4ff5f6328afdba52f7472ec371ef630d0e5e4070ad643d",
+  "https://cdn.esm.sh/v69/superstruct@0.15.4/lib/structs/refinements.d.ts": "c44fdad039a1675562f670010a31e27cd34671fe44889aefb65212c8a5246203",
+  "https://cdn.esm.sh/v69/superstruct@0.15.4/lib/structs/types.d.ts": "fcf964bc83e890d2f20eacc67cc0af0d009a541bed43ecfbbc107a38316c5d8c",
+  "https://cdn.esm.sh/v69/superstruct@0.15.4/lib/structs/utilities.d.ts": "48dc1a1a921596e71006bbdb28d738c9bb79fd2c4e0d4f8ebf2b40e967d43a2c",
+  "https://cdn.esm.sh/v69/superstruct@0.15.4/lib/utils.d.ts": "fe163b022b3a62d40303ae8b28ca1436e998468b7e5c820102931f7842654616",
+  "https://esm.sh/superstruct@0.15.4?pin=v69": "4e732b88e81cb0ad80dcb1cd3ff97bde7bcd94eb4342a34b3d774f171cfcf717"
 }

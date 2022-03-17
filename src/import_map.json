@@ -1,5 +1,5 @@
 {
   "imports": {
-    "superstruct": "https://esm.sh/superstruct@0.15.4"
+    "superstruct": "https://esm.sh/superstruct@0.15.4?pin=v69"
   }
 }

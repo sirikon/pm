@@ -1,5 +1,6 @@
 {
   "imports": {
+    "std/": "https://deno.land/std@0.130.0/",
     "superstruct": "https://esm.sh/superstruct@0.15.4?pin=v69"
   }
 }

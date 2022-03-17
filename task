@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
+import glob
+import os
 
 DENO_CONF_FLAGS = [
     '--import-map', './src/import_map.json',
-    '--lock', './src/lock.json'
+    '--lock', './src/lock.json',
 ]
 DENO_EXEC_FLAGS = ['-A']
 DENO_COMP_FLAGS = ['--unstable', '--cached-only']
+
+ENTRY_FILE = os.path.join(os.getcwd(), 'src/main.ts')
+TEST_FILES = glob.glob(os.path.join(
+    os.getcwd(), 'src/**/*.test.ts'), recursive=True)
 
 
 def cli():
@@ -13,31 +19,39 @@ def cli():
     @command
     def install():
         cmd('deno', 'cache',
-            *DENO_CONF_FLAGS, '--reload', './src/main.ts')
+            *DENO_CONF_FLAGS, '--reload',
+            ENTRY_FILE, *TEST_FILES)
 
     @command
     def lock():
         cmd('deno', 'cache',
-            *DENO_CONF_FLAGS, '--lock-write', './src/main.ts')
+            *DENO_CONF_FLAGS, '--lock-write',
+            ENTRY_FILE, *TEST_FILES)
 
     @command
     def run():
         cmd('deno', 'run',
+            *DENO_CONF_FLAGS,
             *DENO_COMP_FLAGS,
             *DENO_EXEC_FLAGS,
+            ENTRY_FILE)
+
+    @command
+    def test():
+        cmd('deno', 'test',
             *DENO_CONF_FLAGS,
-            './src/main.ts')
+            *TEST_FILES)
 
     @command
     def build():
         cmd('rm', '-rf', 'dist')
         cmd('mkdir', '-p', 'dist')
         cmd('deno', 'compile',
+            *DENO_CONF_FLAGS,
             *DENO_COMP_FLAGS,
             *DENO_EXEC_FLAGS,
-            *DENO_CONF_FLAGS,
             '--output', 'dist/pm',
-            './src/main.ts')
+            ENTRY_FILE)
 
 
 

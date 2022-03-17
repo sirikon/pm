@@ -1,4 +1,4 @@
-# `pm` **P**ackage **M**anager
+# `pm` package manager
 
 ## Discovery and cleanup
 

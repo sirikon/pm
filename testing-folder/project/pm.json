@@ -1,5 +1,8 @@
 {
   "dependencies": [
-    ["peter", "2"]
+    ["bash"],
+    ["node/canary"],
+    ["java", "11"],
+    ["java/j9", "8"]
   ]
 }

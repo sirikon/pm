@@ -1,6 +1,33 @@
 import { dirname, join } from "std/path/mod.ts";
 import { PmFile, PmFileModel } from "./models.ts";
 import { assert } from "superstruct";
+import { PackageRange } from "../core/models.ts";
+import { parseVersionRange } from "./versionParsing.ts";
+import { parseName } from "./nameParsing.ts";
+
+export async function getExplicitPackageRanges(): Promise<PackageRange[]> {
+  const pmFiles = await getPmFiles();
+  const result: PackageRange[] = [];
+
+  for (const pmFile of pmFiles) {
+    if (pmFile.error) {
+      console.log(pmFile.path + ": " + pmFile.error);
+      continue;
+    }
+
+    result.push.apply(
+      result,
+      pmFile.data?.dependencies?.map((d) => ({
+        ...parseName(d[0]),
+        versionRange: d[1]
+          ? parseVersionRange(d[1])!
+          : { from: null, to: null },
+      })) || [],
+    );
+  }
+
+  return result;
+}
 
 export async function getPmFiles() {
   const pmFileLookups = getPmFileLookups(Deno.cwd());

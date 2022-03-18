@@ -3,7 +3,7 @@ import { parseVersionRange } from "./versionParsing.ts";
 
 Deno.test("parseVersionRange works", () => {
   verifyVersionRange("potato", null);
-  verifyVersionRange("", { from: null, to: null });
+  verifyVersionRange("", null);
   verifyVersionRange("1.2.3.4", {
     from: { version: [1, 2, 3, 4], inclusive: true },
     to: { version: [1, 2, 3, 5], inclusive: false },

@@ -1,4 +1,4 @@
 import {} from "superstruct";
-import { getPmFiles } from "./systems/discovery/mod.ts";
+import { getExplicitPackageRanges } from "./systems/discovery/mod.ts";
 
-console.log(await getPmFiles());
+console.log(JSON.stringify(await getExplicitPackageRanges(), null, 2));

@@ -12,6 +12,11 @@ def cli():
     DENO_PERM_FLAGS = ['-A']
     DENO_EXEC_FLAGS = ['--unstable', '--cached-only']
 
+    ENV = dict(
+        os.environ,
+        PM_ROOT=abs('testing-folder/pmroot'),
+    )
+
     ENTRY_FILE = abs('src/main.ts')
     TEST_FILES = glob.glob(os.path.join(
         os.getcwd(), 'src/**/*.test.ts'), recursive=True)
@@ -34,7 +39,7 @@ def cli():
             *DENO_CONF_FLAGS,
             *DENO_PERM_FLAGS,
             *DENO_EXEC_FLAGS,
-            ENTRY_FILE, cwd=workdir)
+            ENTRY_FILE, cwd=workdir, env=ENV)
 
     @command
     def test():

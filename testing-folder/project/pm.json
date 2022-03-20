@@ -2,7 +2,6 @@
   "dependencies": [
     ["bash"],
     ["node/canary"],
-    ["java", "11"],
-    ["java/j9", "8"]
+    ["java", "11"]
   ]
 }

@@ -4,6 +4,10 @@ import { assert } from "superstruct";
 import { PackageRange } from "../core/models.ts";
 import { parseVersionRange } from "./versionParsing.ts";
 import { parseName } from "./nameParsing.ts";
+import {
+  getPmFiles as getPmFilesFromDB,
+  upsertPmFiles,
+} from "../database/mod.ts";
 
 export async function getExplicitPackageRanges(): Promise<PackageRange[]> {
   const pmFiles = await getPmFiles();
@@ -30,7 +34,10 @@ export async function getExplicitPackageRanges(): Promise<PackageRange[]> {
 }
 
 export async function getPmFiles() {
-  const pmFileLookups = getPmFileLookups(Deno.cwd());
+  const pmFileLookups = new Set([
+    ...getPmFilesFromDB(),
+    ...getPmFileLookups(Deno.cwd()),
+  ]);
 
   const result: (
     | { path: string; data: PmFile; error: null }
@@ -74,6 +81,8 @@ export async function getPmFiles() {
       });
     }
   }
+
+  upsertPmFiles(result.filter((r) => r.error == null).map((r) => r.path));
 
   return result;
 }
